@@ -1,3 +1,6 @@
+//Taken from TweetStation
+//https://github.com/migueldeicaza/TweetStation/blob/master/TweetStation/Utilities/Util.cs
+
 using System;
 using System.Diagnostics;
 using System.IO;
