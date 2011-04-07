@@ -5,6 +5,8 @@ using MonoTouch.CoreLocation;
 using MonoTouch.Dialog;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using MonoTouch.MapKit;
+using System.Drawing;
 
 namespace MonoTouchCoreLocationExample
 {
@@ -21,6 +23,7 @@ namespace MonoTouchCoreLocationExample
 		const string footer = "This is an example using MonoTouch.Dialog and MonoTouch.CoreLocation";
 		RootElement demoRoot;
 		DialogViewController controller;
+		public MKMapView mapView = null;
 		
 		bool Busy {
 			get {
@@ -39,6 +42,7 @@ namespace MonoTouchCoreLocationExample
 			controller = new DialogViewController (demoRoot) {
 				Autorotate = true
 			};
+			this.navigationController.NavigationBar.TintColor = UIColor.Black;
 			navigationController.PushViewController (controller, true);				
 
 			window.MakeKeyAndVisible ();
@@ -59,6 +63,12 @@ namespace MonoTouchCoreLocationExample
 			});
 		}
 		
+		public void ShowOnMap() {
+			var mvc = new MapFlipViewController();
+			mvc.Title = "Map";	
+			navigationController.PushViewController (mvc, true);
+		}
+		
 		public void ClearLocation () 
 		{
 			demoRoot = CreateRoot(String.Empty, String.Empty);
@@ -75,7 +85,8 @@ namespace MonoTouchCoreLocationExample
 				},
 				new Section() {
 					new StringElement ("Get location", GetLocation),
-					new StringElement ("Clear location", ClearLocation)
+					new StringElement ("Clear location", ClearLocation),
+					new StringElement ("Show on Map", ShowOnMap)
 				}
 			};
 		    return rootElement;

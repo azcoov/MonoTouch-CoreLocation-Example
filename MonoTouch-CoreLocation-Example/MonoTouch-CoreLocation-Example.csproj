@@ -93,6 +93,10 @@
       <DependentUpon>MainWindow.xib</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="MapViewController.cs" />
+    <Compile Include="MapFlipViewController.cs" />
+    <Compile Include="MapLocationViewController.cs" />
+    <Compile Include="MapHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xib" />
